@@ -26,6 +26,7 @@ namespace _1911064981_NguyenNgoThanhSinh_BigSchool.Controllers
 
             return View();
         }
+        //Commit luc 11h ngay 21/03
         public ActionResult Contact1()
         {
             ViewBag.Message = "Your contact page.";
