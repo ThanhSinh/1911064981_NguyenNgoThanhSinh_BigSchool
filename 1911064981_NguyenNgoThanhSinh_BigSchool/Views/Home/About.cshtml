@@ -1,7 +1,51 @@
 ﻿@{
     ViewBag.Title = "About";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+<h2>
+    Contact information
+</h2>
 
-<p>Use this area to provide additional information.</p>
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+
+
+
+
+
+<div class="form-group">
+    <span class="glyphicon glyphicon-user"></span>
+    <button class="btn bg-info btn-sm js-toggle-follow" name="button" type="button">
+
+        <a href=" https://www.facebook.com/profile.php?id=100006113355309 "> FaceBook </a>
+
+    </button>
+</div>
+
+<div>
+
+</div>
+
+<div class="form-group">
+    <i class="fa-solid fa-phone"></i>
+    <button class="btn bg-info btn-sm js-toggle-follow" name="button" value="OK" type="button" onclick="Phone()">Phone</button>
+    <script>
+
+        function Phone() {
+            alert("Sinh: 0929688352");
+        }
+    </script>
+</div>
+
+<div class="form-group">
+    <span class="glyphicon glyphicon-envelope"></span>
+    <button class="btn bg-info btn-sm js-toggle-follow" name="button" value="OK" type="button" onclick="Gmail()">Gmail</button>
+    <script>
+
+        function Gmail() {
+            alert("Gmail: thanhsinhnguyenngo@gmail.com");
+        }
+    </script>
+</div>
+
+
+
