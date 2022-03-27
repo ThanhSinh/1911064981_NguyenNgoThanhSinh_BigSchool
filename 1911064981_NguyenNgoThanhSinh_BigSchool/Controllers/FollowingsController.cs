@@ -22,6 +22,7 @@ namespace _1911064981_NguyenNgoThanhSinh_BigSchool.Controllers
         {
             _dbContext = new ApplicationDbContext();
         }
+
         [System.Web.Http.HttpPost]
         public IHttpActionResult Follow(FollowingDto followingDto)
         {

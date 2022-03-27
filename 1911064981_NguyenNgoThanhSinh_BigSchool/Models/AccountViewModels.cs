@@ -82,6 +82,9 @@ namespace _1911064981_NguyenNgoThanhSinh_BigSchool.Models
         [Required]
         [StringLength(255)]
         public string Name { get; set; }
+        [Required]
+        [StringLength(10)]
+        public string PhoneNumber { get; set; }
     }
 
     public class ResetPasswordViewModel

@@ -18,6 +18,7 @@ namespace _1911064981_NguyenNgoThanhSinh_BigSchool.Models
 
         public DbSet<Attendance> Attendances { get; set; }
         public DbSet<Following> Followings { get; set; }
+      
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
@@ -45,6 +46,8 @@ namespace _1911064981_NguyenNgoThanhSinh_BigSchool.Models
                 .HasMany(u => u.Followees)
                 .WithRequired(f => f.Follower)
                 .WillCascadeOnDelete(false);
+
+          
 
             base.OnModelCreating(modelBuilder);
         }

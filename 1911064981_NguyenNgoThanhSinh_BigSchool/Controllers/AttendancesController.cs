@@ -42,5 +42,6 @@ namespace _1911064981_NguyenNgoThanhSinh_BigSchool.Controllers
             _dbContext.SaveChanges();
             return Json(new { isFollow = true });
         }
+        
     }
 }

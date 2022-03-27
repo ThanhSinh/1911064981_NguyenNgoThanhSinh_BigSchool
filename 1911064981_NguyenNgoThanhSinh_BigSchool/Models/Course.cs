@@ -6,8 +6,10 @@ using System.Web;
 
 namespace _1911064981_NguyenNgoThanhSinh_BigSchool.Models
 {
+    
     public class Course
     {
+        
         public int Id { get; set; }
         public bool IsCanceled { get; set; }
         public ApplicationUser Lecturer { get; set; }
@@ -20,6 +22,7 @@ namespace _1911064981_NguyenNgoThanhSinh_BigSchool.Models
         public Category Category { get; set; }
         [Required]
         public byte CategoryId { get; set; }
+       
     }
    
 }

@@ -23,6 +23,7 @@ namespace _1911064981_NguyenNgoThanhSinh_BigSchool.ViewModels
         [Required]
         public byte Category { get; set; }
         public IEnumerable<Category> Categories { get; set; }
+        
 
         public DateTime GetDateTime()
         {

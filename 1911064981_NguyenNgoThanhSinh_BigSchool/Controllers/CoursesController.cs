@@ -11,6 +11,8 @@ namespace _1911064981_NguyenNgoThanhSinh_BigSchool.Controllers
 {
     public class CoursesController : Controller
     {
+        private Course dao = new Course();
+        
         // GET: Courses
         private readonly ApplicationDbContext _dbContext;
         public CoursesController()
@@ -79,7 +81,7 @@ namespace _1911064981_NguyenNgoThanhSinh_BigSchool.Controllers
         }
         [Authorize]
         public ActionResult Mine()
-        {
+        {           
             var userId = User.Identity.GetUserId();
             var courses = _dbContext.Courses
                 .Where(c => c.LecturerId == userId && c.DateTime > DateTime.Now)
@@ -88,6 +90,24 @@ namespace _1911064981_NguyenNgoThanhSinh_BigSchool.Controllers
                 .ToList();
             return View(courses);
         }
+        public ActionResult search(string searchString)
+        {
+          
+            /*var links = from l in dao. select l;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                links = links.Where(s => s.Name.Contains(searchString)); 
+
+            }*/
+            return View();
+           
+        }
+        [Authorize]
+        public ActionResult Profile()
+        {
+            return View();
+        }
+
         [Authorize]
         public ActionResult Edit(int id)
         {

@@ -15,5 +15,7 @@ namespace _1911064981_NguyenNgoThanhSinh_BigSchool.ViewModels
 
         public IEnumerable<Attendance> IsFollowCourses { get; set; }
         public IEnumerable<Following> IsFollowLecturers { get; set; }
+
+      
     }
 }
