@@ -11,72 +11,72 @@
 <h2>Danh sách khóa học sắp tới của tôi</h2>
 @using (Html.BeginForm("Mine", "Course", FormMethod.Get))
 {<p>
-    @Html.TextBox("searchString") <input type="submit" value="Search" />
-</p>
-   
- }
+        @Html.TextBox("searchString") <input type="submit" value="Search" />
+    </p>
+
+}
 
 
 
 
 
-        <div class="row">
-            <ul class="course">
-                @foreach (var course in Model)
-                {
-                    <li>
-                        <div class="date">
-                            <div class="month">
-                                @course.DateTime.ToString("MM")
-                            </div>
-                            <div class="day">
-                                @course.DateTime.ToString("dd")
-                            </div>
-                        </div>
-                        <div class="details">
-                            <div class="lecturer">
-                                @course.Lecturer.Name
-                            </div>
-                            <div class="category">
-                                @course.Category.Name
-                            </div>
-                        </div>
+<div class="row">
+    <ul class="course">
+        @foreach (var course in Model)
+        {
+            <li>
+                <div class="date">
+                    <div class="month">
+                        @course.DateTime.ToString("MM")
+                    </div>
+                    <div class="day">
+                        @course.DateTime.ToString("dd")
+                    </div>
+                </div>
+                <div class="details">
+                    <div class="lecturer">
+                        @course.Lecturer.Name
+                    </div>
+                    <div class="category">
+                        @course.Category.Name
+                    </div>
+                </div>
 
-                        <div class="action">
-                            <a href="@Url.Action("Edit","Courses",new {id=course.Id})">Edit</a>
-                            |
-                            <a href="" class="js-cancel-course" data-course-id="@course.Id">Cancel</a>
-                        </div>
-                    </li>
-                }
-            </ul>
-        </div>
-        @section scripts{
-            <script>
-                $(document).ready(
-                    function () {
-                        $(".js-cancel-course").click(function (e) {
-                            e.preventDefault();
-                            var link = $(e.target);
-                            bootbox.confirm("Are you sure to cancel?",
-                                function () {
-                                    $.ajax({
-                                        url: "/api/courses/" + link.attr("data-course-id"),
-                                        method: "DELETE"
-                                    })
-                                        .done(function () {
-                                            link.parents("li").fadeOut(function () {
-                                                $(this).remove();
-                                            });
-                                        })
-                                        .fail(function () {
-                                            alert("Something failed!");
-                                        });
+                <div class="action">
+                    <a href="@Url.Action("Edit","Courses",new {id=course.Id})">Edit</a>
+                    |
+                    <a href="" class="js-cancel-course" data-course-id="@course.Id">Cancel</a>
+                </div>
+            </li>
+        }
+    </ul>
+</div>
+@section scripts{
+    <script>
+        $(document).ready(
+            function () {
+                $(".js-cancel-course").click(function (e) {
+                    e.preventDefault();
+                    var link = $(e.target);
+                    bootbox.confirm("Are you sure to cancel?",
+                        function () {
+                            $.ajax({
+                                url: "/api/courses/" + link.attr("data-course-id"),
+                                method: "DELETE"
+                            })
+                                .done(function () {
+                                    link.parents("li").fadeOut(function () {
+                                        $(this).remove();
+                                    });
+                                })
+                                .fail(function () {
+                                    alert("Something failed!");
                                 });
                         });
-                    });
-            </script>
-        }
+                });
+            });
+    </script>
+}
 
 
 

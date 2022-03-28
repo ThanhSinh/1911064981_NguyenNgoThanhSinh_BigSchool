@@ -5,6 +5,7 @@
 @{
     ViewBag.Title = "Home Page";
 }
+
 <h1>Trang chủ</h1>
 <div class="row">
     <ul class="course">
@@ -80,13 +81,14 @@
 
         }
     </ul>
+
     @section scripts{
         <script>
             $(document).ready(function () {
-               
+
                 $(".js-toggle-attendance").click(function (e) {
                     var button = $(e.target);
-                    
+
                     $.post("/api/attendances", { courseId: button.attr("data-course-id") })
                         .done(function (response) {
                             if (response.isFollow) {
@@ -119,7 +121,7 @@
 
                                         return $(value).removeClass("btn-default")
                                             .addClass("btn-info")
-                                        .text("Following");
+                                            .text("Following");
                                     }
                                 });
                             } else {
@@ -127,7 +129,7 @@
                                     if ($(value).attr("data-user-id") == response.followeeId) {
                                         $(value).removeClass("btn-info")
                                             .addClass("btn-default")
-                                        .text("Follow?");
+                                            .text("Follow?");
                                     }
                                 });
                             }
